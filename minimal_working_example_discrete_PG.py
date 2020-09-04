@@ -3,10 +3,12 @@
 """
 A Discrete Control Implementation for TensorFlow 2.0
 Author: W.J.A. van Heeswijk
-Date: 4-9-2020
-This code is supplemental to the following paper:
+Date: 11-8-2020
+This code is supplemental to the following note:
 'Implementing  Actor Networks for  Discrete Control in TensorFlow 2.0'
-ResearchGate (2020)
+https://www.researchgate.net/
+Corresponding blog post:
+[to appear]
 Python 3.8 and TensorFlow 2.3 were used to write the algorithm
 This code has been published under the GNU GPLv3 license
 """
