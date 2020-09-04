@@ -1,8 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+"""
+A Discrete Control Implementation for TensorFlow 2.0
+Author: W.J.A. van Heeswijk
+Date: 4-9-2020
+This code is supplemental to the following paper:
+'Implementing  Actor Networks for  Discrete Control in TensorFlow 2.0'
+ResearchGate (2020)
+Python 3.8 and TensorFlow 2.3 were used to write the algorithm
+This code has been published under the GNU GPLv3 license
+"""
 """
 
 # Needed for training the network
@@ -14,10 +21,7 @@ import tensorflow.keras.initializers as initializers
 
 # Needed for animation
 import matplotlib.pyplot as plt
-#epoch_ar = []
 
-
-    
 def get_reward(bandit):
     reward = tf.random.normal \
         ([1], mean=bandit, stddev=1, dtype=tf.dtypes.float32)
@@ -67,9 +71,8 @@ bandits = np.array([1.0,0.9,0.9,1.0])
 # Construct actor network
 actor_network = construct_actor_network(bandits)
 
-
+# Define optimizer
 opt = keras.optimizers.Adam(learning_rate=0.001)
-
 
 for i in range(10000 + 1):    
     with tf.GradientTape() as tape:  
@@ -94,8 +97,7 @@ for i in range(10000 + 1):
         #Apply gradients to update network weights
         opt.apply_gradients(zip(grads, actor_network.trainable_variables))
         
-        
-    
+    # Animation
     if np.mod(i, 100) == 0:       
         print('\n======episode',i, '======')
         print('probability',float(probability_action))
