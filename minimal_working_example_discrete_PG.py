@@ -6,7 +6,7 @@ Author: W.J.A. van Heeswijk
 Date: 11-8-2020
 This code is supplemental to the following note:
 'Implementing  Actor Networks for  Discrete Control in TensorFlow 2.0'
-https://www.researchgate.net/
+https://www.researchgate.net/publication/344102641_Implementing_Actor_Networks_for_Discrete_Control_in_TensorFlow_20
 Corresponding blog post:
 [to appear]
 Python 3.8 and TensorFlow 2.3 were used to write the algorithm
