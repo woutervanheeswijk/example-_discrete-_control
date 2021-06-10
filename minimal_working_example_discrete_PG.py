@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
+
 """
 A Discrete Control Implementation for TensorFlow 2.0
 Author: W.J.A. van Heeswijk
@@ -12,7 +11,7 @@ https://towardsdatascience.com/a-minimal-working-example-for-discrete-policy-gra
 Python 3.8 and TensorFlow 2.3 were used to write the algorithm
 This code has been published under the GNU GPLv3 license
 """
-"""
+
 
 # Needed for training the network
 import numpy as np
@@ -25,12 +24,14 @@ import tensorflow.keras.initializers as initializers
 import matplotlib.pyplot as plt
 
 def get_reward(bandit):
+    """Generate reward for selected bandit"""
     reward = tf.random.normal \
         ([1], mean=bandit, stddev=1, dtype=tf.dtypes.float32)
 
     return reward
 
 def plot():
+    """Plot bar chart with selection probability per bandit"""
         fig = plt.figure()
         ax = fig.add_axes([0,0,1,1])
         bandits = ['1', '2', '3', '4']
@@ -47,8 +48,9 @@ def plot():
         
         plt.show()
 
-"""Construct the actor network with mu and sigma as output"""
+
 def construct_actor_network(bandits):
+    """Construct the actor network with mu and sigma as output"""
     inputs = layers.Input(shape=(1,)) #input dimension
     hidden1 = layers.Dense(5, activation="relu",kernel_initializer=initializers.he_normal())(inputs)
     hidden2 = layers.Dense(5, activation="relu",kernel_initializer=initializers.he_normal())(hidden1)
@@ -59,13 +61,14 @@ def construct_actor_network(bandits):
     return actor_network
 
 def cross_entropy_loss(probability_action, state, reward):   
+    """Comput cross entropy loss"""
     log_probability = tf.math.log(probability_action + 1e-5)
     loss_actor = - reward * log_probability
     
     return loss_actor
 
 
-"""Main code"""
+"""Main code: train actor network with discrete policy gradient method"""
 # Fixed state
 state = tf.constant([[1]],dtype=np.float32)
 bandits = np.array([1.0,0.9,0.9,1.0])
