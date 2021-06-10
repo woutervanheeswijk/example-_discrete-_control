@@ -8,7 +8,7 @@ This code is supplemental to the following note:
 'Implementing  Actor Networks for  Discrete Control in TensorFlow 2.0'
 https://www.researchgate.net/publication/344102641_Implementing_Actor_Networks_for_Discrete_Control_in_TensorFlow_20
 Corresponding blog post:
-[to appear]
+https://towardsdatascience.com/a-minimal-working-example-for-discrete-policy-gradients-in-tensorflow-2-0-d6a0d6b1a6d7
 Python 3.8 and TensorFlow 2.3 were used to write the algorithm
 This code has been published under the GNU GPLv3 license
 """
